@@ -21,7 +21,7 @@ def main():
     replace_in_file(
         cfg_file, '"PASSWORD": "1qaz!QAZ"', '"PASSWORD": "{}"'.format(password)
     )
-    #cmd('python3 manage.py migrate')
+    cmd('python3 manage.py migrate')
     cmd('python3 tools/setup/create_superuser.py')
 
 
