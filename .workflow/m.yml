@@ -1,0 +1,17 @@
+# ========================================================
+# Python 构建参考样例
+# 描述：输出当前 Python 构建环境信息
+# ========================================================
+name: gitee-go-example-python        # 流水线唯一ID
+displayName: Gitee-Go-Python         # 流水线显示名称
+triggers:                            # 触发器
+  push:                              # 通过 push 事件触发
+    branches:                        # 触发分支设定
+      - master
+steps:                               # 构建步骤
+  - step: pythonbuild@1              # 采用 Python 编译环境
+    name: python-build               # 构建步骤唯一ID
+    displayName: python-build        # 构建步骤显示名
+    inputs:                          # 构建输入参数
+      pythonVersion: 3.7             # 指定 Python 环境版本为 3.7
+      goals: "chmod 777 ./ci.sh && ./ci.sh"

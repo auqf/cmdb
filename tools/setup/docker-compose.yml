@@ -1,0 +1,43 @@
+version: '3'
+services:
+  #cmdb-es:
+  #  hostname: cmdb-es
+  #  volumes:
+  #    - /var/cmdb/es:/usr/share/elasticsearch/data
+  #  image: elasticsearch:5.6.8
+  #  #network_mode: "host"
+  #  ports:
+  #    - 9200:9200
+  #    - 9300:9300
+
+  cmdb:
+    hostname: cmdb
+    build:
+      context: ./cmdb
+      dockerfile: Dockerfile
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cd /opt/cmdb
+        python3 manage.py runserver 0.0.0.0:8000
+    network_mode: "host"
+    ports:
+      - 8000:8000
+    #depends_on:
+    #  - cmdb-es
+
+  #cmdb-web:
+  #  hostname: cmdb-web
+  #  build:
+  #    context: ./cmdb-web
+  #    dockerfile: Dockerfile
+  #  #network_mode: "host"
+  #  ports:
+  #    - 8080:8080
+  #  command:
+  #    - /bin/sh
+  #    - -c
+  #    - |
+  #      cd /opt/cmdb-web
+  #      cnpm run dev

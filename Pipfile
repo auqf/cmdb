@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+verify_ssl = true
+
+[dev-packages]
+factory-boy = "*"
+
+[packages]
+requests = "*"
+django = "==3.0.6"
+elasticsearch = ">=5.5.3,<6.0.0"
+djangorestframework = "==3.11.0"
+djangorestframework-jwt = "==1.11.0"
+elasticsearch-dsl = "==5.4.0"
+mysqlclient = "==1.4.4"
+markdown = "==2.6.10"
+coreapi = "==2.3.3"
+django-cors-headers = "==3.2.1"
+django-filter = "*"
+
+[requires]
+python_version = "3.7"
